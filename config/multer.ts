@@ -1,20 +1,21 @@
 import multer from "multer";
 import { Request } from "express";
-type DestinationCallaBack = (error: Error | null, destination: string) => void;
-type FilenameCallBack = (error: Error | null, filename: string) => void;
+type DestinationCallBack = (error: Error | null, destination: string) => void;
+type FilenameCllBack = (error: Error | null, filename: string) => void;
+
 const storage = multer.diskStorage({
   destination: (
     req: Request,
     file: Express.Multer.File,
-    cb: DestinationCallaBack
+    cb: DestinationCallBack
   ) => {
     cb(null, "uploads");
   },
-  filename: (req: Request, file: Express.Multer.File, cb: FilenameCallBack) => {
+  filename: (req: Request, file: Express.Multer.File, cb: FilenameCllBack) => {
     cb(null, file.originalname);
   },
 });
-const ViewImage = multer({
+const views = multer({
   storage: storage,
 }).single("coverImage");
-export default ViewImage;
+export default views;

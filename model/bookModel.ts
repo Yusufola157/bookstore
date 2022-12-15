@@ -1,28 +1,25 @@
 import mongoose from "mongoose";
 
-interface books {
-  tittle: string;
-  category: string;
+interface Books {
+  arthur: string;
+  arthurImage: string;
   coverImage: string;
-  summary: string;
+  tittle: string;
   views: [];
+  summary: string;
   ISBN: string;
-  author: string;
-  authorImage: string;
 }
-interface iBooks extends books, mongoose.Document {}
-const bookSchema = new mongoose.Schema(
+interface iBooks extends Books, mongoose.Document {}
+const BookSch = new mongoose.Schema(
   {
-    tittle: String,
-    category: String,
+    arthur: String,
+    arthurImage: String,
     coverImage: String,
-    summary: String,
+    tittle: String,
     views: [],
+    summary: String,
     ISBN: String,
-    author: String,
-    authorImage: String,
   },
   { timestamps: true }
 );
-
-export default mongoose.model<iBooks>("books", bookSchema);
+export default mongoose.model<iBooks>("modelBook", BookSch);

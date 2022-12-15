@@ -1,4 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
+
 cloudinary.config({
   cloud_name: "dvjd1s1cr",
   api_key: "948725743129798",
